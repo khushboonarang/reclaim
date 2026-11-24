@@ -425,7 +425,7 @@ export function generateRecoveryPhases(
       id: "p3_bank_written_dispute",
       title: isEn
         ? "Submit Written Bank Dispute Letter & Demand Lien Marking Confirmation"
-        : "बैंक में लिखित विवाद पत्र (Dispute Letter) दें और लीन (Lien) पुष्टि की मांग करें",
+        : "बैंक में लिखित विवाद पत्र (Dispute Letter) दें और लीन पुष्टि की मांग करें",
       what: isEn
         ? "Deliver an official fraud intimation letter to your home branch manager claiming zero liability under RBI customer protection guidelines."
         : "RBI ग्राहक सुरक्षा दिशानिर्देशों के तहत अपनी होम ब्रांच में लिखित शिकायत पत्र सौंपें और रिसीविंग मुहर लें।",
@@ -546,7 +546,7 @@ export function generateRecoveryPhases(
       id: "p4_track_lien_status",
       title: isEn
         ? "Verify Inter-Bank Lien Amount & Layer-1 / Layer-2 Account Freezes"
-        : "इंटर-बैंक लीन (Lien) राशि और लेयर-1/लेयर-2 खाता फ्रीज की स्थिति जांचें",
+        : "इंटर-बैंक लीन राशि और लेयर-1/लेयर-2 खाता फ्रीज की स्थिति जांचें",
       what: isEn
         ? "Track whether the 1930 CFCFRMS alert successfully caught and froze the money in the scammer's bank before it was withdrawn."
         : "यह सुनिश्चित करें कि 1930 अलर्ट के बाद धोखेबाज के बैंक खाते में आपकी कितनी राशि पर लीन (रोक) लग पाई है।",
@@ -571,7 +571,7 @@ export function generateRecoveryPhases(
       procedureBrief: {
         whatToSayOrWrite: isEn
           ? "Ask the bank: 'Please provide the CFCFRMS response log confirming how much balance was placed under Lien at the recipient bank for my transaction UTR [Number].'"
-          : "बैंक से पूछें: 'कृपया CFCFRMS रिस्पॉन्स रिपोर्ट दें कि मेरे UTR [नंबर] के विरुद्ध धोखेबाज के बैंक में कितनी राशि पर लीन (Lien) दर्ज हुई है।'",
+          : "बैंक से पूछें: 'कृपया CFCFRMS रिस्पॉन्स रिपोर्ट दें कि मेरे UTR [नंबर] के विरुद्ध धोखेबाज के बैंक में कितनी राशि पर लीन दर्ज हुई है।'",
         documentsNeeded: isEn
           ? ["14-digit NCRP Complaint ID", "Bank Token Number", "Transaction UTR"]
           : ["14 अंकों का NCRP पावती नंबर", "बैंक कंप्लेंट टोकन", "लेनदेन UTR"],
@@ -634,7 +634,7 @@ export function generateRecoveryPhases(
         ? "Obtain Court Order for Return of Frozen Funds (Section 457 CrPC / 503 BNSS)"
         : "फ्रीज हुई रकम वापस पाने के लिए अदालत से रिलीज ऑर्डर (धारा 457 CrPC / 503 BNSS) प्राप्त करें",
       what: isEn
-        ? "File an application before the jurisdictional Magistrate court to order the recipient bank to transfer the frozen (Lien) funds back to your account."
+        ? "File an application before the jurisdictional Magistrate court to order the recipient bank to transfer the frozen funds under Lien back to your account."
         : "संबंधित मजिस्ट्रेट अदालत में आवेदन देकर धोखेबाज के बैंक में फ्रीज पड़ी राशि को वापस अपने खाते में मंगाने का न्यायिक आदेश लें।",
       when: isEn ? "Once police confirms funds are frozen under Lien" : "जैसे ही पुलिस पुष्टि करे कि रकम बैंक में सुरक्षित फ्रीज है",
       where: isEn
@@ -655,11 +655,11 @@ export function generateRecoveryPhases(
           ],
       procedureBrief: {
         whatToSayOrWrite: isEn
-          ? "Legal Application: 'Application under Section 457 CrPC for release of interim custody of seized/lien marked money belonging to the applicant lying in [Recipient Bank Account Number].'"
+          ? "Legal Application: 'Application under Section 457 CrPC for release of interim custody of seized funds under Lien belonging to the applicant lying in [Recipient Bank Account Number].'"
           : "अदालती प्रार्थना पत्र: 'आवेदक के खाते से धोखाधड़ी द्वारा निकाली गई और धोखेबाज के खाते में फ्रीज पड़ी राशि को धारा 457 CrPC के तहत अवमुक्त करने हेतु।'",
         documentsNeeded: isEn
           ? ["Certified copy of Police FIR", "Police Seizure Memo confirming Lien", "Applicant Identity & Address Proof", "Indemnity Bond if required by Magistrate"]
-          : ["प्रमाणित FIR प्रति", "पुलिस सीजर मेमो (Lien पुष्टि)", "पहचान व पते का प्रमाण", "न्यायालय द्वारा वांछित क्षतिपूर्ति बंधपत्र"],
+          : ["प्रमाणित FIR प्रति", "पुलिस सीजर मेमो (लीन पुष्टि)", "पहचान व पते का प्रमाण", "न्यायालय द्वारा वांछित क्षतिपूर्ति बंधपत्र"],
         whatHappensNext: isEn
           ? "The recipient bank executes the court mandate, debiting the frozen pool and issuing a direct RTGS/NEFT back into your verified bank account."
           : "धोखेबाज का बैंक अदालत के आदेश का पालन करते हुए फ्रीज राशि को सीधे आपके खाते में NEFT/RTGS द्वारा वापस भेज देता है।",
