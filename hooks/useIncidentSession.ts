@@ -5,6 +5,7 @@ import { AmountBracket, FraudCategory, IncidentData, Language, TimeElapsed } fro
 
 const STORAGE_KEY_INCIDENT = "reclaim_incident_session_v1";
 const STORAGE_KEY_LANG = "reclaim_language_pref";
+export const STORAGE_KEY_CHECKLIST = "reclaim_checklist_progress_v2";
 
 export function useIncidentSession() {
   const [lang, setLangState] = useState<Language>("en");
@@ -58,6 +59,9 @@ export function useIncidentSession() {
       setIncident(fullIncident);
       try {
         localStorage.setItem(STORAGE_KEY_INCIDENT, JSON.stringify(fullIncident));
+        // Reset checklist progress for any new incident so items are never pre-crossed-out
+        localStorage.removeItem(STORAGE_KEY_CHECKLIST);
+        localStorage.removeItem("reclaim_checklist_progress_v1");
       } catch (e) {
         console.warn("Failed to save incident locally:", e);
       }
@@ -70,6 +74,9 @@ export function useIncidentSession() {
     setIncident(null);
     try {
       localStorage.removeItem(STORAGE_KEY_INCIDENT);
+      // Reset checklist progress completely when starting a new case
+      localStorage.removeItem(STORAGE_KEY_CHECKLIST);
+      localStorage.removeItem("reclaim_checklist_progress_v1");
     } catch (e) {
       console.warn("Failed to remove incident from local storage:", e);
     }

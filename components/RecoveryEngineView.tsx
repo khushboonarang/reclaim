@@ -29,7 +29,7 @@ interface RecoveryEngineViewProps {
   lang: Language;
 }
 
-const STORAGE_KEY_CHECKLIST = "reclaim_checklist_progress_v1";
+const STORAGE_KEY_CHECKLIST = "reclaim_checklist_progress_v2";
 
 export const RecoveryEngineView: React.FC<RecoveryEngineViewProps> = ({
   incident,
@@ -52,7 +52,7 @@ export const RecoveryEngineView: React.FC<RecoveryEngineViewProps> = ({
   // 3. Active Phase tab state
   const [activePhaseNum, setActivePhaseNum] = useState<number>(1);
 
-  // 4. Checklist completion state (persisted in localStorage)
+  // 4. Checklist completion state (persisted in localStorage, cleanly reset per case)
   const [completedTaskIds, setCompletedTaskIds] = useState<Record<string, boolean>>({});
 
   // 5. Module 3 Modal States
@@ -65,11 +65,14 @@ export const RecoveryEngineView: React.FC<RecoveryEngineViewProps> = ({
       const saved = localStorage.getItem(STORAGE_KEY_CHECKLIST);
       if (saved) {
         setCompletedTaskIds(JSON.parse(saved));
+      } else {
+        setCompletedTaskIds({});
       }
     } catch (e) {
       console.warn("Could not load checklist from localStorage", e);
+      setCompletedTaskIds({});
     }
-  }, []);
+  }, [incident.capturedAt]);
 
   const handleToggleTask = (id: string) => {
     setCompletedTaskIds((prev) => {
