@@ -94,6 +94,10 @@ async function runLiveAudit() {
       } else {
         console.log('✓ Live tooltip width is within [260, 320] bounds.');
       }
+
+      // Close the tooltip
+      await page.click('button[aria-label="Close explanation"]');
+      await page.waitForTimeout(300);
     }
   }
 
